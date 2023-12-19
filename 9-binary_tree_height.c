@@ -17,11 +17,11 @@ size_t binary_tree_height(const binary_tree_t *tree)
 		return (0);
 	}
 
-	l_height = binary_tree_height(tree->left);
-	r_height = binary_tree_height(tree->right);
-	/* traverses both subtrees and assigns height to var */
+	l_height = tree->left ? binary_tree_height(tree->left) + 1 : 0;
+	r_height = tree->right ? binary_tree_height(tree->right) + 1 : 0;
+	/* traverses both subtrees, checks to see if they exist */
+	/* if found, calculates height and adds 1 to account for root */
 
-	return ((l_height > r_height) ? (l_height) : (r_height));
-	/* checks to see if left or right side is higher */
-	/* if left, calculates left + 1. if right, calculates right + 1 */
+	return (l_height > r_height ? l_height : r_height);
+	/* returns the higher of the two values (max height ) */
 }
