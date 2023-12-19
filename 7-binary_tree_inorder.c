@@ -3,6 +3,7 @@
 #include "binary_trees.h"
 /**
  * binary_tree_inorder - traverses binary tree using in-order method
+ * left subtree -> current (root node) -> right subtree
  * @tree: pointer to root node of tree
  * @func: functon that will be executed at each node
  */
