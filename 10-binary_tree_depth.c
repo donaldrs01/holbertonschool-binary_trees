@@ -10,20 +10,20 @@
  */
 size_t binary_tree_depth(const binary_tree_t *tree)
 {
-	size_t left_depth;
-	size_t right_depth;
+	size_t depth = 0;
 
 	if (tree == NULL)
 	{
 		return (0);
 	}
-	else
-	{
-		left_depth = binary_tree_depth(tree->left);
-		/* calculate depth of left subtree */
-		right_depth = binary_tree_depth(tree->right);
 
-		return ((left_depth > right_depth ? left_depth : right_depth) + 1); /* provides depth + 1 of larger subtree */
+	if (tree->parent) /* checks if tree has parent */
+	{
+		depth = binary_tree_depth(tree->parent);
+		depth++;
+		/* calculates depth of parent node + 1 */
 	}
+
+	return (depth);
 }
 
