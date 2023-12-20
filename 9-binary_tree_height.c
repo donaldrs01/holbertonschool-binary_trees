@@ -21,6 +21,7 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	r_height = tree->right ? binary_tree_height(tree->right) + 1 : 0;
 	/* traverses both subtrees, checks to see if they exist */
 	/* if found, calculates height and adds 1 to account for root */
+	/* if not found, assigns height as 0 to that side */
 
 	return (l_height > r_height ? l_height : r_height);
 	/* returns the higher of the two values (max height ) */
